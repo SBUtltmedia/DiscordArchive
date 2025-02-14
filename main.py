@@ -40,12 +40,17 @@ async def archive(ctx, category: discord.CategoryChannel):
     await archive_category.edit(overwrites={everyone: discord.PermissionOverwrite(view_channel=False)})
     
     # Notify that the archiving process has started
-    await ctx.send(f"Archiving all channels in **{category.name}**...")
+    message = f"Archiving all channels in **{category.name}**..."
+    print(message)
+    await ctx.send(message)
+
 
     # Iterate over all channels in the given category
     for channel in list(category.channels):
         # Clone the channel (creates a fresh channel with the same settings, but no messages)
-        cloned_channel = await channel.clone(reason="Creating a fresh channel after archiving.")
+        message = "Creating a fresh channel after archiving."
+        print(message)
+        cloned_channel = await channel.clone(reason=message)
         # Place the cloned channel back in the original category and maintain its position
         await cloned_channel.edit(category=category, position=channel.position)
         
@@ -59,8 +64,9 @@ async def archive(ctx, category: discord.CategoryChannel):
         
         # Explicitly deny @everyone permission to view the channel
         await channel.set_permissions(everyone, view_channel=False)
-    
-    await ctx.send("Category archived successfully!")
+    message = "Category archived successfully!"
+    print(message)
+    await ctx.send(message)
 
 # Run the bot using the token from your .env file
 if __name__ == "__main__":
