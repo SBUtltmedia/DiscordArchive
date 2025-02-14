@@ -24,27 +24,29 @@ This bot is ideal for keeping a historical record of channel conversations while
 # Installation
 1. **Clone the Repository**
 
-   ```bash
+   ```
    git clone https://github.com/yourusername/discord-archive-bot.git
-   cd discord-archive-bot```
+   cd discord-archive-bot
+   ```
 2. Set Up a Virtual Environment (Optional but Recommended)
-  python -m venv venv
+  ```python -m venv venv```
   On macOS/Linux:
     ```source venv/bin/activate```
   On Windows:
     ```venv\Scripts\activate```
 3. Install Dependencies
   Ensure you have a requirements.txt file in your project directory with the following (or similar):
-    ```discord.py==1.7.3
-    python-dotenv==1.0.0```
+    ```
+    discord.py==1.7.3
+    python-dotenv==1.0.0
+    ```
   Then run:
-    ```pip install -r requirements.txt
+    ```pip install -r requirements.txt```
 4. Configure Environment Variables
   Rename the file .env_example to .env in the project root directory and modify the file with your Discord bot token:
     ```DISCORD_TOKEN=your_actual_bot_token_here```
   Note: Replace your_actual_bot_token_here with your bot's token. Ensure there are no extra quotes or spaces.
   Go to https://discordpy.readthedocs.io/en/stable/discord.html and follow the instructions to obtain a discord token, (the full guide is good for making and inviting a bot to your server)
-
 
 
 # Configuration
@@ -55,7 +57,7 @@ This bot is ideal for keeping a historical record of channel conversations while
       -Read Messages / Send Messages
   ## Command Prefix:
     The default command prefix is !. You can change it in main.py by modifying the line:
-      bot = commands.Bot(command_prefix="!", intents=intents)
+      ```bot = commands.Bot(command_prefix="!", intents=intents)```
 
 # Running the Bot
   To start the bot, run the following command in your terminal:
